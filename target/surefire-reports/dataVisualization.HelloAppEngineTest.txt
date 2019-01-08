@@ -1,10 +1,10 @@
 -------------------------------------------------------------------------------
 Test set: dataVisualization.HelloAppEngineTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.057 sec <<< FAILURE!
-test(dataVisualization.HelloAppEngineTest)  Time elapsed: 0.018 sec  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.292 sec <<< FAILURE!
+test(dataVisualization.HelloAppEngineTest)  Time elapsed: 1.248 sec  <<< ERROR!
 java.lang.NullPointerException
-	at dataVisualization.HelloAppEngine.doGet(HelloAppEngine.java:26)
+	at dataVisualization.HelloAppEngine.doGet(HelloAppEngine.java:58)
 	at dataVisualization.HelloAppEngineTest.test(HelloAppEngineTest.java:13)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)

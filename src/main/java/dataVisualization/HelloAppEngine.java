@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.Map;
+import java.util.List;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,8 +23,11 @@ public class HelloAppEngine extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws IOException {
-	  
-	String ballotId = request.getParameter("ballotID");	
+	String ballotId;
+	if(request == null) {
+		ballotId = "1";
+	}
+	else ballotId = request.getParameter("ballotID");	
 	
 	File file = null;
 	
