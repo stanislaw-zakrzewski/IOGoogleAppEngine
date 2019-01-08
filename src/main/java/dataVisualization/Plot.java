@@ -11,6 +11,7 @@ import java.awt.Rectangle;
 import java.awt.Stroke;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -229,9 +230,15 @@ public class Plot {
 		ImageIO.write(bi, type, outputFile);
 	}
 	
-	public BufferedImage save2(String fileName, String type) throws IOException {
+	public byte[] save2(String fileName, String type) throws IOException {
 		clear();
-		return draw();
+		BufferedImage bi = draw();
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		ImageIO.write( bi, "jpg", baos );
+		baos.flush();
+		byte[] imageInByte = baos.toByteArray();
+		baos.close();
+		return imageInByte;
 	}
 	
 	private class Legend {

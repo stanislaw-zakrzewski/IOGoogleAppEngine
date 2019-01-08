@@ -4,7 +4,6 @@ import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
-import java.nio.file.Files;
 
 public class Curl {
     private String serverPath;
@@ -13,7 +12,7 @@ public class Curl {
         this.serverPath = serverPath;
     }
 
-    public InputStream getData(String id) {
+    public String getData(String id) {
         String charset = "UTF-8";
         String param1 = "--location";
         String param2 = "--request GET";
@@ -21,8 +20,6 @@ public class Curl {
         String query = null;
         URLConnection connection = null;
         InputStream response = null;
-        InputStream result = null;
-
         try {
             query = String.format("param1=%s&param2=%s",
                     URLEncoder.encode(param1, charset),
@@ -46,17 +43,22 @@ public class Curl {
             e.printStackTrace();
         }
 
-        result = response;
-
-        File file = new File("out.json");
-        if (!file.exists()) {
-            try {
-                Files.copy(response, file.toPath());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return result;
+        StringBuilder stringBuilder = new StringBuilder();
+    	String line = null;
+    	
+    	try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(response, charset))) {	
+    		while ((line = bufferedReader.readLine()) != null) {
+    			stringBuilder.append(line);
+    		}
+    	} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+     
+    	return stringBuilder.toString();
     }
 
 }

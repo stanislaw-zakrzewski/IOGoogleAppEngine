@@ -12,7 +12,7 @@ public class DrawPlot {
         this.data=data;
     }
 
-    public void draw(String fileName) {
+    public byte[] draw(String fileName) {
 
         List<Double> glosy = new ArrayList<>();
         glosy.addAll(data.values());
@@ -39,9 +39,10 @@ public class DrawPlot {
             );
         }
         try {
-            plot.save(fileName, "png");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+			return plot.save2(fileName, "png");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}return null;
     }
 }
