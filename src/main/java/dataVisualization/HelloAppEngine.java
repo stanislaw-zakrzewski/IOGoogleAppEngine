@@ -34,7 +34,7 @@ public class HelloAppEngine extends HttpServlet {
 	Curl curl = new Curl("https://gnuplot.000webhostapp.com/ballotResult/"); //TODO
     curl.getData("0.json");//potem ballot id
 
-    File f = new File("out" + ballotId + ".json");
+    File f = new File("out.json");
     String in = null;
     try {
         in = FileUtils.readFileToString(f);
