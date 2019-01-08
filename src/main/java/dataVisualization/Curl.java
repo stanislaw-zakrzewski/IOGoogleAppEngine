@@ -46,7 +46,7 @@ public class Curl {
         StringBuilder stringBuilder = new StringBuilder();
     	String line = null;
     	
-    	try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(response, charset))) {	
+    	/*try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(response, charset))) {	
     		while ((line = bufferedReader.readLine()) != null) {
     			stringBuilder.append(line);
     		}
@@ -57,8 +57,9 @@ public class Curl {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+    	System.out.println(stringBuilder.toString());*/
      
-    	return stringBuilder.toString();
+    	return "{  \"ballotResult\": [   {     \"name\": \"A\",     \"votes\": \"10\",     \"id\": 0   },   {     \"name\": \"B\",     \"votes\": \"20\",     \"id\": 1   },   {     \"name\": \"C\",     \"votes\": \"15\",     \"id\": 2   },   {     \"name\": \"D\",     \"votes\": \"40\",     \"id\": 3   },   {     \"name\": \"E\",     \"votes\": \"10\",     \"id\": 4   },   {     \"name\": \"F\",     \"votes\": \"35\",     \"id\": 5   },   {     \"name\": \"G\",     \"votes\": \"5\",     \"id\": 6   },   {     \"name\": \"H\",     \"votes\": \"30\",     \"id\": 7   }, ]}";
     }
 
 }

@@ -234,7 +234,7 @@ public class Plot {
 		clear();
 		BufferedImage bi = draw();
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		ImageIO.write( bi, "jpg", baos );
+		ImageIO.write( bi, "png", baos );
 		baos.flush();
 		byte[] imageInByte = baos.toByteArray();
 		baos.close();
