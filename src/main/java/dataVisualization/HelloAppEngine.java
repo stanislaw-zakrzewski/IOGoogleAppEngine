@@ -34,7 +34,7 @@ public class HelloAppEngine extends HttpServlet {
 	Curl curl = new Curl("https://gnuplot.000webhostapp.com/ballotResult/"); //TODO
     curl.getData("0.json");//potem ballot id
 
-    File f = new File("out.json");
+    File f = new File("out" + ballotId + ".json");
     String in = null;
     try {
         in = FileUtils.readFileToString(f);
@@ -49,10 +49,10 @@ public class HelloAppEngine extends HttpServlet {
     DrawPlot dp = new DrawPlot(map);
     dp.draw(ballotId);
 	
-    f.delete();
+    //f.delete();
     
     file = new File(ballotId + ".png");
-    file.deleteOnExit();	
+    //file.deleteOnExit();	
 	
     response.setContentType("image/png");
     response.getOutputStream().write(Files.readAllBytes(file.toPath()));
