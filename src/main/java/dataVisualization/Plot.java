@@ -231,7 +231,7 @@ public class Plot {
 	}
 	
 	public byte[] save2(String fileName, String type) throws IOException {
-		clear();
+		//clear();
 		BufferedImage bi = draw();
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		ImageIO.write( bi, "png", baos );
